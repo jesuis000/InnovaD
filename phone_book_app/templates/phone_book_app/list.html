@@ -1,0 +1,17 @@
+{% extends 'phone_book_app/base_generic.html' %}
+
+{% block content %}
+    <a href="{% url 'add_contact' %}">Add Contact</a>
+    </nav>
+    </header>
+    <h2>Contact List</h2>
+    <ul>
+        {% for contact in contacts %}
+            <li>
+                <a href="{% url 'contact_details' contact.id %}">{{ contact.name }}</a>
+            </li>
+        {% empty %}
+            <li>No contacts yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

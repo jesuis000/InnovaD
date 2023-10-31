@@ -1,0 +1,14 @@
+{% extends 'phone_book_app/base_generic.html' %}
+
+{% block content %}
+  <h2>Contact Details</h2>
+  <p>Name: {{ contact.name }}</p>
+  <p>Phone Numbers:</p>
+  <ul>
+    {% for number in contact.phonenumber_set.all %}
+      <li>{{ number.number }}</li>
+    {% empty %}
+      <li>No phone numbers yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
